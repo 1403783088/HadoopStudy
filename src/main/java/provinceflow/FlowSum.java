@@ -1,4 +1,4 @@
-package flowsum;
+package provinceflow;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -9,8 +9,6 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -68,7 +66,12 @@ public class FlowSum {
 
         //指定mapper输出的kv类型
         job.setMapOutputKeyClass(Text.class);
+        //同时指定相应“分区”数量的ReduceTask
         job.setMapOutputValueClass(FlowBean.class);
+
+        //指定我们自定义的数据分区器
+        job.setPartitionerClass(ProvincePartitioner.class);
+        job.setNumReduceTasks(5);
 
         //指定最终输出的kv类型
         job.setOutputKeyClass(Text.class);
