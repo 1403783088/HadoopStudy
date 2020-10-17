@@ -35,7 +35,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>provinceflow.FlowSum</mainClass>
+                            <mainClass>flowsort.FlowSum</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

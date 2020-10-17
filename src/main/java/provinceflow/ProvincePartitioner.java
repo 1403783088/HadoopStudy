@@ -6,7 +6,7 @@ import org.apache.hadoop.mapreduce.Partitioner;
 import java.util.HashMap;
 
 /**
- * K2 V2对应的是map输出对应的K V类型
+ * K2 V2对应的是mapper输出对应的K V类型
  */
 public class ProvincePartitioner extends Partitioner<Text, FlowBean> {
     public static HashMap<String, Integer> provinceDict = new HashMap<String, Integer>();
@@ -23,3 +23,5 @@ public class ProvincePartitioner extends Partitioner<Text, FlowBean> {
         return (provinceId==null)?4:provinceId;
     }
 }
+
+
