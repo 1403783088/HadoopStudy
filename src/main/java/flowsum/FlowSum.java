@@ -55,8 +55,14 @@ public class FlowSum {
     public static void main(String[] args) throws Exception{
         Configuration conf = new Configuration();
         conf.set("fs.hdfs.impl", org.apache.hadoop.hdfs.DistributedFileSystem.class.getName());
-        conf.set("mapreduce.framework.name", "yarn");
-        conf.set("yarn.resourcemanager.hostname", "hadoop1");
+        //hadoop yarn模式的配置
+//        conf.set("mapreduce.framework.name", "yarn");
+//        conf.set("fs.defaultFS", "hdfs://hadoop1:9000/");
+//        conf.set("yarn.resourcemanager.hostname", "hadoop1");
+
+        //hadoop local模式的配置
+        conf.set("mapreduce.framework.name", "local");
+        conf.set("fs.defaultFS", "file:///");
         Job job = Job.getInstance(conf);
 
         //指定本程序的jar包所在的本地路径
@@ -80,7 +86,6 @@ public class FlowSum {
 
         //将job中配置的先关参数以及job所用的java类所在的jar包，提交给yarn运行
         /*job.submit();*/
-        Thread.sleep(5000);
         boolean res = job.waitForCompletion(true);
         System.out.println(res);
         System.exit(res?0:1);

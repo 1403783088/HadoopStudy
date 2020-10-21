@@ -1,0 +1,4 @@
+P0001	order_id=1002, dateString='20150710', p_id=P0001, amount=3, pname='小米5', category_id=1001, price=2.0, flag='0
+P0001	order_id=1001, dateString='20150710', p_id=P0001, amount=2, pname='小米5', category_id=1001, price=2.0, flag='0
+P0002	order_id=1002, dateString='20150710', p_id=P0002, amount=3, pname='锤子T1', category_id=1000, price=3.0, flag='0
+P0003	order_id=1003, dateString='20150710', p_id=P0003, amount=3, pname='锤子', category_id=1002, price=4.0, flag='0

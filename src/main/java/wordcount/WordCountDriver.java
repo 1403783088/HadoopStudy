@@ -18,8 +18,16 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 public class WordCountDriver {
     public static void main(String[] args) throws Exception{
         Configuration conf = new Configuration();
+        //hadoop yarn模式的配置
         conf.set("mapreduce.framework.name", "yarn");
+        conf.set("fs.defaultFS", "hdfs://hadoop1:9000/");
         conf.set("yarn.resourcemanager.hostname", "hadoop1");
+
+        //hadoop local模式的配置
+//        conf.set("mapreduce.framework.name", "local");
+//        conf.set("fs.defaultFS", "file:///");
+
+
         Job job = Job.getInstance(conf);
 
         //指定本程序的jar包所在的本地路径
